@@ -37,3 +37,25 @@ canvas.addEventListener('mouseup', () => {
     drawing = false;
     ctx.beginPath();
 });
+
+// task 3
+
+function drawShape(x, y) {
+    ctx.strokeStyle = colorPicker.value;
+    ctx.beginPath();
+
+    switch (selectedTool) {
+        case 'line':
+            ctx.moveTo(startX, startY);
+            ctx.lineTo(x, y);
+            break;
+        case 'rectangle':
+            ctx.rect(startX, startY, x - startX, y - startY);
+            break;
+        case 'circle':
+            const radius = Math.sqrt(Math.pow(x - startX, 2) + Math.pow(y - startY, 2));
+            ctx.arc(startX, startY, radius, 0, 2 * Math.PI);
+            break;
+    }
+    ctx.stroke();
+}
