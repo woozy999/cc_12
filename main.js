@@ -59,3 +59,10 @@ function drawShape(x, y) {
     }
     ctx.stroke();
 }
+
+//task 4
+
+const clearButton = document.getElementById('clearCanvas');
+clearButton.addEventListener('click', () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+});
